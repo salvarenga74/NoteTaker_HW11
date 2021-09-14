@@ -4,17 +4,16 @@ const {
     readFromFile,
     readAndAppend,
     writeToFile,
-  } = require('../helpers/fsUtils');
+} = require('../helpers/fsUtils');
 
 // GET route for api notes
-apiRoutes.get('/api/notes', (req, res) => {
+apiRoutes.get('/notes', (req, res) => {
     readFromFile('./db/db.json').then((data) =>
-    res.json(JSON.parse(data))
-    );
+    res.json(JSON.parse(data)));
 });
 
 // POST Route for new Notes with a unique id
-apiRoutes.post('/api/notes', (req, res) =>{
+apiRoutes.post('/notes', (req, res) =>{
  console.log(req.body);
 
  const { title , text } = req.body;
@@ -34,7 +33,7 @@ apiRoutes.post('/api/notes', (req, res) =>{
 });
 
 // DELETE route for a specific note
-apiRoutes.delete('/api/notes/:id', (req, res) => {
+apiRoutes.delete('/notes/:id', (req, res) => {
     const activeNote = req.params.id;
     readFromFile('./db/db.json')
       .then((data) => JSON.parse(data))

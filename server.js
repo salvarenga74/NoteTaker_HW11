@@ -12,10 +12,5 @@ app.use(express.static('public'));
 app.use('/api', apiRoutes);
 app.use('/', htmlRoutes);
 
-    // catch all is star
-app.get('*', (req, res) =>
-res.sendFile(path.join(__dirname, '/public/index.html'))
-);
-
 // Listening PORT
 app.listen(PORT, () => console.log(`listening on PORT: ${PORT} 🚀`));
