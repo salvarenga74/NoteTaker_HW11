@@ -1,5 +1,10 @@
 const apiRoutes = require('express').Router();
 const { v4: uuidv4 } = require('uuid');
+const {
+    readFromFile,
+    readAndAppend,
+    writeToFile,
+  } = require('../helpers/fsUtils');
 
 // GET route for api notes
 apiRoutes.get('/api/notes', (req, res) => {
